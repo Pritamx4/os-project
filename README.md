@@ -1,6 +1,6 @@
 # Memory Management Simulator
 
-A modern, interactive web-based simulator for visualizing memory management techniques including **Paging**, **Virtual Memory**, and **Segmentation**.
+A modern, interactive web-based simulator for visualizing memory management techniques including **Paging**, **Virtual Memory**, and  **Segmentation**.
 
 ## 🎨 Features
 
