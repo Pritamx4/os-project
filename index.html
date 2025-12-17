@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Management Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header-card">
+      <h1>Memory Management Simulator</h1>
+      <p class="subtitle">Visualize paging, segmentation, and virtual memory techniques</p>
+    </div>
+    <div class="mode-card">
+      <div class="mode-buttons">
+        <button id="pagingBtn" class="mode-btn active">Paging & Virtual Memory</button>
+        <button id="segmentBtn" class="mode-btn">Segmentation</button>
+      </div>
+    </div>
+    <section id="pagingSection">
+      <div class="config-card">
+        <h2>Configuration</h2>
+        <div class="config-grid">
+          <div class="input-group">
+            <label>Replacement Algorithm</label>
+            <select id="algorithm">
+              <option value="FIFO">FIFO (First In First Out)</option>
+              <option value="LRU">LRU (Least Recently Used)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Number of Frames</label>
+            <input type="number" id="frameSize" value="4" min="1" max="10" />
+          </div>
+          <div class="input-group">
+            <label>Page Reference String</label>
+            <input type="text" id="pageSeq" value="1,2,3,4,1,2,5,1,2,3,4,5" />
+          </div>
+        </div>
+        <div class="actions">
+          <button onclick="runPaging()" class="btn-run">▶ Run Simulation</button>
+          <button onclick="resetPaging()" class="btn-reset">↻ Reset</button>
+        </div>
+      </div>
+      <div id="statsCard" class="stats-card hidden">
+        <h2>Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-box stat-faults">
+            <div class="stat-value" id="faultCount">0</div>
+            <div class="stat-label">Page Faults</div>
+          </div>
+          <div class="stat-box stat-hits">
+            <div class="stat-value" id="hitCount">0</div>
+            <div class="stat-label">Hits</div>
+          </div>
+          <div class="stat-box stat-rate">
+            <div class="stat-value" id="hitRate">0%</div>
+            <div class="stat-label">Hit Rate</div>
+          </div>
+        </div>
+      </div>
+      <div id="timelineCard" class="timeline-card hidden">
+        <h2>Execution Timeline</h2>
+        <div class="table-wrapper">
+          <table id="timeline">
+            <thead>
+              <tr>
+                <th>Step</th>
+                <th>Page Request</th>
+                <th>Frame State</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section id="segmentSection" class="hidden">
+      <div class="segment-card">
+        <h2>Segment Table</h2>
+        <div class="table-wrapper">
+          <table id="segmentTable">
+            <thead>
+              <tr>
+                <th>Segment</th>
+                <th>Name</th>
+                <th>Base Address</th>
+                <th>Limit (Size)</th>
+                <th>Range</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="info-box">
+          <strong>ℹ Logical Address = (Segment Number, Offset)</strong><br>
+          Physical Address = Base[Segment] + Offset (if Offset &lt; Limit)
+        </div>
+        <h3>Address Translation</h3>
+        <div class="config-grid">
+          <div class="input-group">
+            <label>Segment Number</label>
+            <select id="segNum"></select>
+          </div>
+          <div class="input-group">
+            <label>Offset</label>
+            <input type="number" id="offset" value="100" min="0" />
+          </div>
+        </div>
+        <div id="segResult" class="seg-result"></div>
+        <h3>Physical Memory Map</h3>
+        <div class="memory-map" id="memoryMap"></div>
+      </div>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
