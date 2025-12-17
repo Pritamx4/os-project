@@ -636,26 +636,201 @@ tr.hit {
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding: 16px;
+    padding: 12px;
+  }
+
+  .header-card,
+  .mode-card,
+  .config-card,
+  .stats-card,
+  .timeline-card {
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .header-card h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
   }
 
   .config-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-value {
+    font-size: 36px;
   }
 
   .action-buttons {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-run,
+  .btn-reset {
+    width: 100%;
+    min-width: 100%;
+    padding: 16px 32px;
   }
 
   .mode-buttons {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .mode-btn {
+    width: 100%;
+  }
+
+  /* Table Responsive Styling */
+  .table-container,
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+
+  table {
+    min-width: 600px;
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  th {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .page-badge {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
   .frame-container {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+
+  .frame-box {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .status-badge {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .replaced-info {
+    font-size: 11px;
+  }
+
+  /* Input fields on mobile */
+  .input-group input,
+  .input-group select,
+  .form-group input,
+  .form-group select {
+    padding: 16px 18px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .input-group label,
+  .form-group label {
+    font-size: 10px;
+  }
+
+  /* Segmentation mobile */
+  .memory-map {
+    height: 250px;
+  }
+
+  .segment-box {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .info-box {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  #segResult {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .result-title {
+    font-size: 18px;
+  }
+
+  .result-answer {
+    font-size: 18px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
+  }
+
+  .header-card,
+  .mode-card,
+  .config-card,
+  .stats-card,
+  .timeline-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .header-card h1 {
+    font-size: 24px;
+  }
+
+  .config-card h2,
+  .stats-card h2,
+  .timeline-card h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .table-container,
+  .table-wrapper {
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  table {
+    min-width: 550px;
+  }
+
+  .frame-box {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 11px;
   }
 }
